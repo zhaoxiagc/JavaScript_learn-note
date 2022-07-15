@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(8, 51, 152);
+            position: absolute;
+            left: 0;
+            top: 200px;
+        }
+    </style>
+    <script>
+        /*
+        点击按钮以后，box1向右移动
+        */
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var btn03 = document.getElementById("btn03");
+            
+            /*
+            btn01.onclick = function(){
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    /*
+                    var oldvalue = parseInt(getStyle(box1,"left"));
+                    var  newValue = oldvalue + 10;
+                    box1.style.left = newValue + "px";
+                    //
+                    
+                   box1.style.left = box1.offsetLeft + 10 +"px";
+                   if(parseInt(box1.style.left)>=800){
+                    parseInt(box1.style.left) == 800
+                   }
+                   if(parseInt(box1.style.left) == 800){
+                    clearInterval(timer);
+                   }
+                },30);
+            } 
+
+            btn02.onclick = function(){
+                clearInterval(timer);
+                timer = setInterval(function(){
+                   box1.style.left = box1.offsetLeft - 10 +"px";
+                   if(parseInt(box1.style.left)<=0){
+                    parseInt(box1.style.left) == 0;
+                   }
+                   if(parseInt(box1.style.left) == 0){
+                    clearInterval(timer);
+                   }
+                },30);
+            }
+            */
+
+            /*
+            利用函数精简代码，使系统化
+                参数：
+                1.obj：要执行动画的对象
+                2.speed：移动的速度（正数向右移动，负数向左移动）
+                    但这样比较麻烦，需要自己判断方向确定±
+                    所以我们希望直接能够自己判断
+                        例如：从0向800移动为正
+                            从800向0移动为负
+            */
+
+            btn01.onclick = function(){
+                move(box1,800,20);
+            }
+            btn02.onclick = function(){
+                move(box1,0,-10);
+            }
+            btn03.onclick = function(){
+                move(box2,800,10);
+            }
+            var timer;
+            function move(obj,target,speed){
+                clearInterval(obj.timer);
+                /*if(obj.style.left > target){
+                    speed = -speed;
+                    }*/
+                obj.timer = setInterval(function(){
+                    
+                    obj.style.left = obj.offsetLeft + speed +"px"
+                    
+                   if((speed < 0 && parseInt(obj.style.left)<= target) || (speed > 0 && parseInt(obj.style.left))>= target){
+                    parseInt(obj.style.left) == target;
+                   }
+                   if(parseInt(obj.style.left) == target){
+                    clearInterval(obj.timer);
+                   }
+                },30);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">点击按钮以后box1向右移动</button>
+    <button id="btn02">点击按钮以后box1向左移动</button>
+    <button id="btn03">点击按钮以后box2向右移动</button>
+    <button id="btn04">点击按钮以后box2向右移动</button>
+    <br>
+    <br>
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+</html>

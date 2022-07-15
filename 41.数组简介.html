@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        内建对象
+        宿主对象
+        自定义对象
+
+        数组（Array）
+            也是一个对象
+            它和我们普通的对象功能类似，也是用来存储一些值的
+            不同的是普通对象是使用字符串作为属性名的
+            而数组是使用数字作为索引来操作对象
+        
+            -索引
+                从0开始的整数就是索引
+
+            数组的存储性能比普通对象要好，在开发中我们经常使用数组来存储一些数据
+        */
+
+        //创建数组对象
+        var arr = new Array();
+        //使用typeof检查一个数组时，返回object
+        console.log(typeof arr);
+
+        /*
+        向数组中添加元素
+            语法：数组[索引] = 值
+        读取：
+            语法：数组[索引]
+        获取数组的长度：
+            语法：数组.legth
+            对于连续的数组，使用length可以获取到数组的长度（元素的个数）
+            对于非连续的数组，使用length会获取到数组的最大的索引加1
+                尽量不要创建非连续数组
+        */
+       arr[0] = 10;
+       arr[1] = 11;
+       arr[2] = 50;
+
+       console.log(arr);
+       console.log(arr[2]);
+       console.log(arr[5]);
+       console.log(arr.length);
+
+       var arr2 = new Array();
+       arr2[0] = 10;
+       arr2[10] = 11;
+       arr2[18] = 50;
+       console.log(arr2);
+       console.log(arr2.length);
+
+       //修改length
+       //如果修改的length长度大于原长度，则多出部分会空出来
+       //如果修改的length长度小于原长度，则多出部分会被删除
+       arr.length=10;
+       console.log(arr);
+
+
+       //向数组的最后一个位置添加元素
+       arr[arr.length] = 56;
+       console.log(arr);
+
+
+       //使用字面量创建数组
+       //语法：[]
+       arr1=[1,2,3,4,5,6,7,8,9];
+       console.log(arr1);
+       console.log(arr1.length);
+
+       //使用构造函数创建数组时，也可以同时添加元素，将要添加的元素作为构造函数的参数传递
+       var arr3 = new Array(10,20,30)
+       console.log(arr3);
+
+       //注意
+       //创建一个数组中只有一个元素10
+       arr5 = [10];
+       console.log(arr5);
+       //创建一个长度为10的数组
+       arr6 = new Array(10);
+       console.log(arr6);
+
+
+       //数组中的元素可以是任意类型的数据类型，也可以是对象，也可以是函数
+       arr7 = ["hello","tonmmy",56,null,undefined];
+       console.log(arr7);
+
+       var obj = {name:"孙悟空"};
+       arr7[arr7.length] = obj;
+       console.log(arr7);
+       console.log(arr7[5].name);
+
+       arr8 = [function(){alert(1)},function(){alert(2)}];
+       console.log(arr8);
+       arr8[0]();
+
+       arr9 = [[1,2,3],[45,6],[110,561,445,4]];
+       console.log(arr9);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

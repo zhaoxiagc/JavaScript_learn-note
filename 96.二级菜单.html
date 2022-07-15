@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        a,img{
+            border: 0;
+            text-decoration: none;
+        }
+        body{
+            font: 12px/180% Arial, Helvetica, sans-serif, "新宋体";
+        }
+        .sdmenu{
+            width: 200px;
+            margin: 0 auto;
+        }
+        .collapsed{
+            height: 50px;
+        }
+        .collapsed a{
+            display: none;
+        }
+        span{
+            display: block;
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            background-color: rgb(183, 181, 181);
+            border-radius: 3px;
+        }
+        a{
+            display: block;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 20px;
+            text-align: center;
+            background-color: rgb(236, 229, 229);
+            border-radius: 3px;
+            border-top: 1px rgb(227, 213, 213) solid;
+            
+            color: blue;
+        }
+    
+        a:hover{
+            color: cadetblue;
+            background-color: rgb(191, 229, 239);
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            /*
+            我们的每一个菜单都是一个div
+                当div具有collapsed这个类时，div就是折叠的状态
+                没有时，就展开
+            */
+
+            /*
+            点击菜单切换菜单的显示状态
+            */
+           var menuSpan = document.querySelectorAll(".menuSpan");
+           //定义一个变量来定义当前打开的菜单
+           var openDiv = menuSpan[0].parentNode;
+           for(var i = 0;i < menuSpan.length; i++){
+                menuSpan[i].onclick = function(){
+                var parentDiv = this.parentNode;
+                //切换之前获取高度
+                var begin = parentDiv.offsetHeight;
+                toggleClass(parentDiv , "collapsed");
+                //切换之后获取高度
+                var end = parentDiv.offsetHeight;
+
+                //动画效果就是从begin向end过渡
+                //parentDiv.style.height = begin + "px";
+                //move(parentDiv,end,10);
+                if(openDiv != parentDiv && !hasClass(openDiv, "collapsed")){
+                    //addClass(openDiv,"collapsed");
+                    toggleClass(openDiv,"collapsed");
+                }
+                openDiv = parentDiv;
+            }
+           }
+
+           function addClass(obj,cn){
+            if(!hasClass(obj,cn)){
+                obj.className += " "+cn;
+            }
+            
+        }
+
+        //判断一个元素中是否含有指定的class属性值
+        /*
+        如果有该class，则返回true，没有返回false
+        */
+        function hasClass(obj,cn){
+
+            //判断obj中有没有cn class
+            //创建一个正则表达式
+            //var reg = /\bb2\b/;
+            var reg = new RegExp("\\b"+cn+"\\b");
+            return reg.test(obj.className);
+        }
+
+        //删除一个元素中的指定的class属性
+        function removeClass(obj,cn){
+            var reg = new RegExp("\\b"+cn+"\\b");
+            obj.className = obj.className.replace(reg,"")
+        }
+
+        /*
+        toggleClass可以用来切换一个类
+            如果元素中具有该类，则删除
+            如果元素中没有该类，则添加
+        */
+        function toggleClass(obj,cn){
+            //判断obj中是否含有cn
+            if(hasClass(obj,cn)){
+                removeClass(obj,cn);
+            }
+            else{
+                addClass(obj,cn);
+            }
+        }
+        var timer;
+            function move(obj,target,speed){
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function(){
+                    
+                    obj.style.top = obj.offsetTop + speed +"px"
+                    
+                   if((speed < 0 && parseInt(obj.style.top)<= target) || (speed > 0 && parseInt(obj.style.top))>= target){
+                    parseInt(obj.style.top) == target;
+                   }
+                   if(parseInt(obj.style.top) == target){
+                    clearInterval(obj.timer);
+                   }
+                },30);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="my_menu" class="sdmenu">
+        <div>
+            <span class="menuSpan">在线工具</span>
+            <a href="javascript:;">图像优化</a>
+            <a href="javascript:;">收藏夹图标生成器</a>
+            <a href="javascript:;">邮件</a>
+            <a href="javascript:;">htaccess密码</a>
+            <a href="javascript:;">梯度图像</a>
+            <a href="javascript:;">按钮生成器</a>
+        </div>
+        <div class="collapsed">
+            <span class="menuSpan">支持我们</span>
+            <a href="javascript:;">推荐我们</a>
+            <a href="javascript:;">链接我们</a>
+            <a href="javascript:;">网络资源</a>
+        </div>
+        <div class="collapsed">
+            <span class="menuSpan">合作伙伴</span>
+            <a href="javascript:;">Javascript工具包</a>
+            <a href="javascript:;">Css驱动</a>
+            <a href="javascript:;">CodingForums</a>
+            <a href="javascript:;">Css例子</a>
+        </div>
+        <div  class="collapsed">
+            <span class="menuSpan">测试电脑</span>
+            <a href="javascript:;">Current or not</a>
+            <a href="javascript:;">Current or not</a>
+            <a href="javascript:;">Current or not</a>
+            <a href="javascript:;">Current or not</a>
+        </div>
+
+    </div>
+</body>
+</html>

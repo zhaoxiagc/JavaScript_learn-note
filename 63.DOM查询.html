@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            document.getElementById("bj").onclick = function(){
+                alert(this.innerHTML);
+            }
+            document.getElementById("btn01").onclick = function(){
+                //查找所有li节点
+                //getElementsByTagName()可以根据标签名来获取一组元素结点对象
+                //这个方法会给我们返回一个类数组对象，所有查询到的元素都会对封装到对象中
+                //即使查询到的元素只有一个也会封装到数组中返回
+                var lis = document.getElementsByTagName("li");
+                alert(lis.length);
+                for(var i=0;i<lis.length;i++){
+                    alert(lis[i].innerHTML);
+                }
+            }
+            document.getElementById("btn02").onclick = function(){
+                var inputs = document.getElementsByName("gender");
+                for(var i=0;i<inputs.length;i++){
+                    alert(inputs[i].value);
+                }
+            }
+            //注意：
+                //innerHTML 用于获取元素内部的HTML代码
+                //对于自结束标签，这个属性没有意义，如果需要读取元素节点属性，直接使用元素.属性名
+                //例子：元素.id     元素.name    元素.value
+                //注意：class属性不能采用这种方式
+                //读取class属性时需要使用：元素.className
+
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">城市名称</button>
+    <ul>
+        <li id="bj">beijing</li>
+        <li>shanghai</li>
+        <li>shenzhen</li>
+        <li>chengdu</li>
+        <li>xian</li>
+    </ul>
+
+    <button id="btn02">性别</button>
+    <input type="radio" name="gender" value="male">male
+    <input type="radio" name="gender" value="famale">famale
+</body>
+</html>

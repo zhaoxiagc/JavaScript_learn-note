@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        window.onload = function(event){
+            /*
+            键盘事件：
+                onkeydown   按键被按下
+                    如果一直按着某个按键不松手，事件一直在触发，会连续触发
+                    当onkeydown连续触发时，第一次和第二次之间会间隔稍微长一点，其他的会非常的快
+                        这种设置是为了防止误操作
+                onkeyup     按键被松开
+                键盘事件一般都会绑定给一些可以获取到焦点的对象或者是document
+            */
+
+            /*
+            document.onkeydown = function(){
+                console.log("按键被按下了！")
+            }
+            document.onkeyup = function(){
+                console.log("按键被松开了！")
+            }
+            */
+
+            event = event || window.event;
+            /*
+            可以通过keyCode来获取按键额编码
+            通过它可以判断哪个按键被按下
+
+            除了keyCode，键盘事件中还提供了几个属性
+                altKey
+                ctrlKey
+                shiftKey
+                    这三个用来判断alt ctrl shift是否被按下
+                    如果是则返回true，如果不是则返回false
+            */
+           //判断y是否被按下
+           if(event.keyCode === 89){
+                console.log("y");
+           }
+
+           //判断y和Ctrl是否同时按下
+           if(event.keyCode === 89 && event.ctrlKey){
+                console.log("y和Ctrl都被按下了！");
+           }
+
+
+
+           //获取input
+           var input = document.getElementsByTagName("input")[0];
+           input.onkeydown = function(){
+            console.log(22);
+            event = event || window.event;
+            //在文本框中属于onkeydown的默认行为
+            //如果在onkeydown中取消了默认行为，则输入的内容，不会出现在文本框中
+            
+            //是文本框中不能输入数字
+            if(event.keyCode >= 48 && event.keyCode<=57){
+                return false;
+            }
+            
+           }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+    <input type="text" />
+</body>
+</html>

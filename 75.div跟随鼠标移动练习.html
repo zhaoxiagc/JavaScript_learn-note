@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            /*
+            使div可以跟随鼠标移动
+            */
+            var box1 = document.getElementById("box1");
+            document.onmousemove = function(event){
+                //解决兼容问题
+                event = event || window.event;
+                //var left = event.clientX;
+                //var top = event.clientY;
+
+                //var left = event.pageX;
+                //var top = event.pageY;
+
+                /*
+                Chrome认为浏览器的滚动条是body的，可以通过body.scrollTop来获取
+                */
+                var st = document.body.scrollTop||document.documentElement.scrollTop;
+                var sl = document.body.scrollLeft||document.documentElement.scrollLeft;
+                var left = event.clientX;
+                var top = event.clientY;
+
+                box1.style.left = left + sl +"px";
+                box1.style.top = top + st +"px";
+
+                /*
+                clientX和clientY用于获取鼠标在当前的可见窗口的坐标
+                div的偏移量是相对于整个页面的 
+
+                pageX和pageY是相对于页面的坐标
+                    但这个属性与IE8不兼容
+                */
+
+
+            }
+        }
+    </script>
+</head>
+<body style="height: 1000px; width:2000px;">
+    <div id="box1"></div>
+</body>
+</html>

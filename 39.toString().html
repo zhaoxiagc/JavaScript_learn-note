@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Person(name,age,gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+        var per = new Person("gaochao",24,"男");
+
+        //当我们直接在页面中打印一个对象时，事件上是输出的对象的toString()方法的返回值
+        //如果我们希望在输出对象时不输出[object object]，可以为对象添加一个toString()方法
+        console.log(per);
+        console.log(per.toString());
+        console.log(per.hasOwnProperty("toString"));
+        console.log(per.__proto__.hasOwnProperty("toString"));
+        console.log(per.__proto__.__proto__.hasOwnProperty("toString"));
+
+        var per1 = new Person;
+        per1.toString = function(){
+            return "我是一个快乐的小person";
+        }
+        console.log(per1.toString());
+
+        //直接给构造函数的原型添加toString()方法
+        Person.prototype.toString = function(){
+            return "我是一个悲伤的大person";
+        }
+        var per2 = new Person();
+        console.log(per.toString());
+        console.log(per2.toString());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

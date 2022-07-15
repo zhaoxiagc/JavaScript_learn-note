@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        Date对象
+            在JS中使用Date对象来表示一个时间
+            如果直接使用构造函数创建一个Date对象，则会封装为当前代码执行的时间
+        */
+       var d = new Date();
+       console.log(d);
+
+       //创建一个指定的时间对象
+       //需要在构造函数中传递一个表示时间的字符串作为参数
+       //日期的格式：  月份/日/年 时：分：秒
+       //注意：年份一定要写完整，避免歧义
+       var d1 = new Date("12/05/2016 11:10:30");
+       console.log(d1);
+
+       //getDate()获取当前日期是几日
+       var date  = d1.getDate();
+       console.log(date);
+
+       //getDay()获取当前日期是星期几
+       //会返回一个0-6的值
+       //0表示周日，1表示周一，...
+       var day = d1.getDay();
+       console.log(day);
+
+       //getMonth()获取当前时间的月份
+       //会返回一个0-11的值
+       //0表示1月，1表示2月，2表示3月，... ，11表示12月
+       var month = d1.getMonth();
+       console.log(month);
+
+       //getFullYear()获取当前日期对应的年份
+       var year = d1.getFullYear();
+       console.log(year);
+
+       var year1 = d1.getYear();   //一般不适用这个方法，会出错，所以利用getFullYear()进行替代
+       console.log(year1);
+
+       //getTime()获取当前日期对象的时间戳
+       //时间戳，指的是从格林威治标准时间的1970年1月1日，0时0分0秒
+       //到当前日期所花费的毫秒数（1秒=1000毫秒）
+       //计算机底层在保存时间时保存的都是时间戳
+       var time = d1.getTime();
+       console.log(time);
+        //注意1/1/1970 0:0:0是北京时间，而不是格林威治时间，所以会存在时差，显示的time就不是0
+       var d2 = new Date("1/1/1970 0:0:0");
+       console.log(d2);
+       var time1 = d2.getTime();
+       console.log(time1);
+
+       //获取当前的时间戳
+       //可以利用时间戳来测试当前代码执行的性能
+       time2 = Date.now();
+       console.log(time2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

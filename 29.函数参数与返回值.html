@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        定义一个用来求两个数和的函数
+        调用函数时，可以在()中指定实参
+        实参将会赋值给函数中的形参
+
+        调用函数时，解析器也不会检查实参的数量
+        多余实参不会被赋值
+        如果实参数量少于形参数量，则没有对应实参的形参将是undefined
+
+        函数的实参可以是任意数据类型
+        */
+        var a = prompt();
+        var b = prompt();
+        function sum(a,b){
+            console.log(+a + +b);
+        }
+        sum(a,b);
+
+
+
+        /*
+        在函数中，return后的语句都不会执行，使用return可以结束整个函数
+        如果return语句后不跟任何值，就相当于返回一个undefined
+        如果函数中不写return，则也会返回undefined
+        return 后可以跟任意类型的值
+        */
+        function sum1(a,b,c){
+            var z = a+b+c;
+            return alert(z);
+        }
+        var result = sum1(1,2,3);
+        console.log(result);
+
+
+        /*
+        实参可以是任意的数据类型，也可以是一个对象
+        当我们的参数过多时，可以将参数封装到一个对象中，然后通过对象传递
+        
+        */
+       function sayhello(o){
+            console.log("我是"+o.name+"，我今年"+o.age+"岁了，我是一个"+o.gender+"人，我住在"+o.address);
+       }
+       var obj = {
+           name:"孙悟空",
+           age:18,
+           gender:"男",
+           address:"花果山"
+       }
+       sayhello(obj);
+
+
+       /*
+       实参可以是一个对象，也可以是一个函数
+       */
+      function fun(a){
+        console.log("a = "+a);
+      }
+      fun(sayhello);
+
+
+      //下面二者的区别
+      //函数对象，相当于直接使用函数对象
+      fun(sayhello);
+      //调用函数，sayhello()相当于使用的函数的返回值
+      fun(sayhello());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

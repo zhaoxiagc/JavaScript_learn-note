@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        Math和其他的对象不同，它不是一个构造函数
+            它属于一个工具类，不用创建对象，它里面封装了数学运算相关的属性和方法
+            比如：Math.PI表示圆周率
+        */
+       console.log(Math);
+       console.log(typeof Math);
+
+       console.log(Math.PI);
+
+       //abs()可以用来计算一个数的绝对值
+       console.log(Math.abs(-45.14));
+
+       console.log(Math.cos(60));
+
+       //Math.ceil()可以对一个数进行向上取整
+       //小数位只要有值，就向上取整
+       console.log(Math.ceil(60.59999));
+       //Math.floor()可以对一个数进行向下取整，小数部分会被舍掉
+       console.log(Math.floor(60.59999));
+       //Math.round()可以对一个数进行四舍五入取整
+       console.log(Math.round(9.9));
+       console.log(Math.round(9.4));
+
+
+        /*
+       Math.random()用来生成一个0-1之间的随机数
+            生成一个0-10之间的随机数
+            生成一个0-x之间的随机数
+                Math.round(Math.random()*(y-x)+x)
+
+            生成一个1-10
+            生成一个x-y之间的随机数
+                Math.round(Math.random()*10)
+       */
+       console.log(Math.random());
+       //生成一个0-10的随机数
+       console.log(Math.round(Math.random()*10));
+       //生成一个5-6的随机数
+       console.log(Math.round(Math.random()*1)+5);
+
+       /*
+       max()可以获取多个数中的最大值
+       min()可以获取多个数中的最小值
+       */
+      var max = Math.max(10,2560,30,569);
+      console.log(max);
+
+      /*
+      Math.pow(x,y);   返回x的y次幂
+      Math.sqrt(x);    返回x的开方
+      */
+      console.log(Math.pow(2,3));
+      console.log(Math.sqrt(2));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

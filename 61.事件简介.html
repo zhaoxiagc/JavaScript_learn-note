@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        事件
+            事件就是文档或浏览器窗口中发生的一些待定的交互瞬间
+            JS与HTML之间的交互是通过事件实现的
+            对于web应用来说，有下面这些代表性的事件：
+                点击某个元素
+                将鼠标移动至某个元素上方
+                按下键盘上某个键
+                关闭窗口
+                ...
+
+            可以在时间对应的属性中设置一些js代码
+                事件被触发时，这些代码就会执行
+            这种写法我们称为结构和行为耦合，我们不推荐使用
+        */
+    </script>
+    
+</head>
+<body>
+    <button id="btn" onclick="alert('讨厌，你点我干嘛');">我是一个按钮</button>
+    <button id="btn1">I love me!</button>
+    <script>
+        /*
+        可以为按钮的对应时间绑定处理函数的形式来响应事件
+            当事件被触发时，其对应的函数将会被调用
+        */
+       //获取按钮对象
+       var btn1= document.getElementById("btn1");
+       //绑定一个单击事件
+       //像这种为单击事件绑定的函数，我们称为单击响应函数
+       btn1.onmousemove = function(){
+        alert("滚吧！");
+       }
+    </script>
+</body>
+</html>

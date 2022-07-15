@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        在底层字符串时以字符数组的形式保存的
+            length可以用来获取字符串的长度
+            charAt()可以返回字符串中指定位置的字符，根据索引获取指定的字符
+            charCodeAt()可以返回指定位置字符的Unicode编码
+            fromCharCode()可以根据字符编码去获取字符
+            concat()可以用来连接两个或者多个字符串，作用和+一样
+            indexOf()该方法可以检索一个字符串中的是否含有指定内容
+                如果字符串中含有该内容，则会返回其第一次出现的索引
+                如果没有找到指定的内容，则返回-1
+                可以指定第二个参数，指定开始查找的位置
+            lastIndexOf()方法和indexOf()一样
+                不同的是indexOf是从前往后找
+                lastIndexOf是从后往前找
+            slice()可以从字符串中截取指定的内容，包括开始位置，不包括结束位置
+            substring()也可以用来截取一个字符串，和slice()类似
+                不同的是，这个方法不能接受负值作为参数，如果传递了一个负值，默认为0
+                而且它会自动调整参数位置，如果第二个参数小于第一个，则会自动交换位置
+            sunstr()也是用来截取字符，第一个位置为截取开始位置，第二个为截取的长度
+            split()可以将一个字符串拆分成一个数组
+                需要一个字符串作为参数，将会根据该字符串去拆分数组
+            toUpperCase()将字符串转为大写
+            toLowerCase()将字符串转为大写
+        */
+       var str = "Hello Atguigu";
+       console.log(str.length);
+       console.log(str[6]);
+
+       console.log(str.charAt(0));
+       console.log(str.charAt(6));
+
+       console.log(str.charCodeAt(0));
+
+       console.log(String.fromCharCode(72));
+       console.log(String.fromCharCode(20045));
+       console.log(String.fromCharCode(0x2692));
+
+       console.log(str.concat("hello","goodbye","！"));
+
+       console.log(str.indexOf("e"));
+       console.log(str.indexOf("p"));
+       console.log(str.indexOf("u",10));
+
+       console.log(str.lastIndexOf("l"));
+
+       console.log(str.slice(0,7));
+       console.log(str.slice(6,(-4)));
+
+       console.log(str.substring(0,7));
+       console.log(str.substring(9,-5));
+
+       console.log(str.substr(0,2));
+
+       console.log(str.split(""));
+       console.log(str.split(" "));
+       console.log(str.split("A"));
+
+       console.log(str.toUpperCase());
+       console.log(str.toLowerCase());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

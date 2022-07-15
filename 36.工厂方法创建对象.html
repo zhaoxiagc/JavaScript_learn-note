@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         * 创建一个对象
+        */
+       var obj={
+           name:"tom",
+           age:18,
+           sayname:function(){
+               alert(this.name);
+           }
+       }
+
+       var obj2={
+           name:"lisa",
+           age:28,
+           sayname:function(){
+               alert(this.name);
+           }
+       }
+
+       var obj3={
+           name:"yoyo",
+           age:21,
+           sayname:function(){
+               alert(this.name);
+           }
+       }
+
+       //上面的创建方法不适合大批量创建对象
+       //可以找更简单的方法做这个事情
+
+       /*
+       使用工厂方法创建对象
+            通过该方法可以大批量创建对象
+            使用工厂方法创建的对象，使用的构造函数都是Object
+            所以创建的对象都是Object类型
+            就会导致我们无法区分出不同的数据类型
+       */
+      function createPerson(name,age,gender){
+            //创建一个新的对象
+            var obj=new Object();
+            obj.name = name;
+            obj.age = age;
+            obj.gender = gender;
+            return obj;
+      }
+      var obj4=createPerson("zhuzhu",65,"male");
+      var obj5=createPerson("huhu",5,"male");
+      var obj6=createPerson("uuuu",45,"famale");
+      console.log(obj4);
+      console.log(obj5);
+      console.log(obj6);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

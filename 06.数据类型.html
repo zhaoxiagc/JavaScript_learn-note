@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+         数据类型指的就是字面量的类型
+         在JS中，一共有六种数据类
+            String   字符串
+            Number   数值
+            Boolean  布尔值
+            Null     空值
+            Undefined   未定义
+            Object   对象
+        
+
+        其中String Number Boolean Null Undefined属于基本数据类型
+        Object是引用数据类型
+
+        1.字符串
+            -在JS中字符串需要使用引号引起来
+            -使用双引号或者单引号都可以，但是不要混着用
+            -引号不能嵌套，双引号里面不能放双引号，单引号里面不能放单引号
+                在字符串中，我们可以使用\作为转义字符
+                    当表示一些特殊符号是可以使用\进行转义
+                    例如：\"  表示一个双引号
+                          \'  表示一个单引号
+                          \n  表示换行
+                          \t  制表符
+                          \\  表示\
+        2.数值型
+            -在JS中，所有的数值都是Number类型
+            -包括整数和浮点数（小数）
+            -JS中可以表示的数字的最大值
+                Number.MAX_VALUE
+                    1.7976931348623157e+308
+                如果使用Number表示的数值超过了最大值，则会返回一个Infinity
+                    Infinity表示正无穷，注意Infinity就是一个自变量，赋值时不加双引号
+                    -Infinity表示负无穷
+                    typeof Infinity  检查的结果是number
+            -NaN 是一个特殊的数字，表示 Not a Nmuber
+                使用typeof检查NaN，检查的结果是number
+                使用typeof检查"NaN"，检查的结果是string
+            -Number.MIN_VALUE
+                5e-324 表示0以上的最小值
+            -数字可以进行运算
+                如果使用JS进行浮点数运算，可能会得到一个不精确的结果
+                所以千万不要使用JS进行对精确度要求比较高的运算
+        3.布尔值
+            布尔值只有两个，主要用来做逻辑判断
+                true
+                false
+            typeof 检测结果输出为boolean
+        4.Null(空值)和Undefined(未定义)
+            Null类型的值只有一个，就是null
+                null这个值专门用来表示一个值为空的对象
+                使用typeof 检查Null的类型时，返回值是object
+            Undefined类型的值只有一个，就是undefined
+                当声明一个变量，但是不给变量赋值时，它的值就是undefined
+                使用typeof 检查Undefined的类型时，返回值是undefined
+        */
+
+        /*
+        可以使用一个运算符typeof来检查一个变量类型
+        语法：
+            typeof 变量
+                检查字符串时，会返回string
+                检查数值时，会返回number
+        */
+
+
+
+        //变量只声明一次，重新赋值时不再重复声明
+       var str = "hello";
+       str = "我说:\"今天\t天气真不错！\"";
+       str1 = "\\";
+       document.write(str);
+       document.write(str1);
+       document.write(typeof str1);
+
+       var a = 123.456;
+       document.write(a);
+       document.write(typeof a);
+
+       console.log(Number.MAX_VALUE);
+       var b = Number.MAX_VALUE * Number.MAX_VALUE;
+       console.log(b);
+
+       console.log(Number.MIN_VALUE);
+
+       var sum = 123 * 456;
+       console.log(sum);
+       var sum1 = 0.1 + 0.2;
+       console.log(sum1);
+
+       var bool = true;
+       console.log(bool);
+       console.log(typeof bool);
+
+       var c = null;
+       console.log(c);
+       console.log(typeof c);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

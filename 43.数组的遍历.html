@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        数组遍历，就是将数组中所有的元素都取出来
+        */
+       var arr = ["tom","jucy","linda"];
+
+       for(var i=0;i<arr.length;i++)
+       {
+           console.log(arr[i]);
+       }
+
+
+       //练习
+       function Person(name,age){
+           this.name = name;
+           this.age = age;
+       }
+       Person.prototype.toString = function(){
+           return "Person[name="+this.name+",age="+this.age+"]";
+       }
+       var per = new Person("tom",18);
+       var per2 = new Person("lisa",58);
+       var per3 = new Person("tommy",16);
+       var per4 = new Person("linda",68);
+       var per5 = new Person("siri",15);
+       console.log(per);
+       var perArr = [per, per2,per3,per4,per5];
+
+       function getAdult(arr){
+           var newArr = [];
+           for(var i=0;i<arr.length;i++){
+               if(arr[i].age>=18){
+                newArr.push(arr[i]);
+               }
+           }
+           return newArr;
+       }
+       console.log(getAdult(perArr));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        循环语句：
+            通过循环语句可以反复地执行一段代码多次
+        创建一个循环，往往需要三个步骤：
+        1.初始化一个变量
+        2.在循环中设置一个条件表达式
+        3.定义一个更新表达式，每次更新初始化变量
+
+        while循环
+         语法：
+            while(条件表达式){
+                语句……
+            }
+
+        do while循环
+         语法：
+         do{
+             语句……
+         }while（条件表达式）
+        
+        */
+
+        /*
+        for循环：
+            也是一个for循环，也成为for语句
+            语法：
+                for(初始化表达式；条件表达式；更新表达式){
+                    语句……
+                }
+
+        */
+       
+        
+
+        //练习，水仙花数
+        for(var i=100;i<1000;i++){
+            var bai=parseInt(i/100);
+            var shi=parseInt((i-bai*100)/10);
+            var ge=parseInt(i-bai*100-shi*10);
+            //var ge=i%10;      //个位也可以这么求解
+            if(bai*bai*bai+shi*shi*shi+ge*ge*ge == i)
+            {
+                //document.write(i);
+                console.log(i);
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

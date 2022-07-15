@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 220px;
+            height: 200px;
+            margin: 50px auto;
+            padding: 10px 0;
+            background-color: blueviolet;
+            position: relative;
+            overflow: hidden;
+        }
+        #img-list{
+            list-style: none;
+            position: absolute;
+            transition: all 1s;
+        }
+        #img-list li{
+            float: left;
+            margin: 0 10px;
+        }
+        #navDiv{
+            position: absolute;
+            bottom: 15px; 
+            left: 50%;
+            transform: translate(-50%);
+        }
+        #navDiv a{
+            float: left;
+            width: 11px;
+            height: 11px;
+            background-color: red;
+            opacity: 0.7;
+            margin: 0 2px;
+            border-radius: 50%;
+        }
+        #navDiv a:hover{
+            background-color: black;
+            opacity: 0.3;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            //设置img-list的宽度
+            var imgList = document.getElementById("img-list");
+            var imgArr = document.getElementsByTagName("img");
+            imgList.style.width = 220*imgArr.length + "px";
+
+            var allA = document.getElementsByTagName("a");
+            var index = 0;;
+            for(var i=0;i<allA.length;i++){
+                allA[i].num = i;
+                allA[i].onclick = function(){
+                    index = this.num;
+                    imgList.style.left = (-index)*220 + "px";
+                    setA();
+                    /*move(imgList, parseInt(imgList.style.left) , -8);*/
+                }
+            }
+
+            function setA(){
+                for(var i=0;i<allA.length;i++){
+                    allA[i].style.backgroundColor = "";
+                }
+                allA[index].style.backgroundColor = "black";
+            }
+            /*
+            var timer;
+            function move(obj,target,speed){
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function(){
+                    obj.style.left = obj.offsetLeft + speed +"px"
+                   if((speed < 0 && parseInt(obj.style.left)<= target) || (speed > 0 && parseInt(obj.style.left))>= target){
+                    parseInt(obj.style.left) == target;
+                   }
+                   if(parseInt(obj.style.left) == target){
+                    clearInterval(obj.timer);
+                   }
+                },30);
+            }
+            */
+        }
+    </script>
+</head>
+<body>
+    <!--创建一个div，来作为大容器-->
+    <div id="outer">
+        <ul id="img-list">
+            <li><img src="./img/64.1.jpg" alt=""></li>
+            <li><img src="./img/64.2.jpg" alt=""></li>
+            <li><img src="./img/64.3.jpg" alt=""></li>
+            <li><img src="./img/64.4.jpg" alt=""></li>
+            <li><img src="./img/64.5.jpg" alt=""></li>
+            <li><img src="./img/64.6.jpg" alt=""></li>
+        </ul>
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        break语句可以用来退出switch循环语句
+        不能在if语句中使用break和continue
+
+        可以为循环语句创建一个label，来标识当前的循环
+        label：循环语句
+        使用break语句时，可以在break后跟着一个label，
+            这样break将会结束指定的循环，而不是最近的
+
+        continue关键字可以用来跳过当次循环
+        同样continue也是默认只会对最近的循环起作用
+        */
+
+
+        /*
+        测试程序的运行时间
+            在程序执行前，开启一个计时器
+            console.time()可以用来开启一个计时器
+            它需要一个字符串作为参数，这个字符串将会作为计数器的标识
+
+        */
+
+        console.time("test");
+        var i=1;
+        i++;
+        console.timeEnd("test");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
